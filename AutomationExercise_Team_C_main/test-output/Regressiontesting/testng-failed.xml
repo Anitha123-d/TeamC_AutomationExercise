@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regressiontesting]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="AuthorName" value="User1"/>
+    <parameter name="Browser" value="chrome"/>
+    <classes>
+      <class name="product_test.Testcase_19">
+        <methods>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+          <include name="View_Cart_Brand_Products"/>
+        </methods>
+      </class> <!-- product_test.Testcase_19 -->
+      <class name="product_test.Testcase_15">
+        <methods>
+          <include name="VerifyProductquantityinCart"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_15 -->
+      <class name="product_test.Testcase_20">
+        <methods>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+          <include name="Search_Products_and_Verify_Cart_After_Login"/>
+        </methods>
+      </class> <!-- product_test.Testcase_20 -->
+      <class name="product_test.Testcase_24">
+        <methods>
+          <include name="Downloadinvoiceafterpurchaseorder"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_24 -->
+      <class name="product_test.Testcase_03">
+        <methods>
+          <include name="Login_User_with_incorrect_email_and_password"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_03 -->
+      <class name="product_test.Testcase_12">
+        <methods>
+          <include name="AddProductsinCart"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_12 -->
+      <class name="product_test.Testcase_18">
+        <methods>
+          <include name="View_Category_Products"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_18 -->
+      <class name="product_test.Testcase_16">
+        <methods>
+          <include name="Login_Before_Checkout"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_16 -->
+      <class name="product_test.Testcase_06">
+        <methods>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+          <include name="Contact_Us_Form"/>
+        </methods>
+      </class> <!-- product_test.Testcase_06 -->
+      <class name="product_test.Testcase_14">
+        <methods>
+          <include name="VerifyProductquantityinCart"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_14 -->
+      <class name="product_test.Testcase_13">
+        <methods>
+          <include name="VerifyProductquantityinCart"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_13 -->
+      <class name="product_test.Testcase_04">
+        <methods>
+          <include name="Logout_User"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_04 -->
+      <class name="product_test.Testcase_02">
+        <methods>
+          <include name="LoginUser_with_correct_email_and_password"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_02 -->
+      <class name="product_test.Testcase_26">
+        <methods>
+          <include name="Verifyscrollupwithoutarrowbuttonandscrolldownfunctionality"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_26 -->
+      <class name="product_test.Testcase_05">
+        <methods>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+          <include name="Register_User_with_existing_email"/>
+        </methods>
+      </class> <!-- product_test.Testcase_05 -->
+      <class name="product_test.Testcase_01">
+        <methods>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+          <include name="Register_User"/>
+        </methods>
+      </class> <!-- product_test.Testcase_01 -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Regressiontesting] -->
