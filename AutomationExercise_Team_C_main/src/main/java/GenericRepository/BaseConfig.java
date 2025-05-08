@@ -1,16 +1,25 @@
 package GenericRepository;
 
+import java.io.IOException;
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
+import PageRepository.HomePage;
+import PageRepository.LoginPage;
+import PageRepository.SignUpPage;
 import PropertyUtility.ReadPropertyFile;
+import excelutility.ReadExcelFile;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import javautility.Randomnumbergeneration;
 
 public class BaseConfig {
 
@@ -22,7 +31,7 @@ public class BaseConfig {
 	@BeforeClass
 	public void browserSetup(String browser, String username) {
 
-		
+
 		System.out.println("Username:" + username);
 
 		// Create Object for all library
@@ -51,7 +60,7 @@ public class BaseConfig {
 		// Step 3:Navigate to the application via URL
 		driver.get(URL);
 
-		String expect_url = "https://www.automationexercise.com";
+		String expect_url = URL;
 		String actual_url = driver.getCurrentUrl();
 		System.out.println(actual_url);
 		if (expect_url.equals(actual_url)) {
@@ -60,7 +69,7 @@ public class BaseConfig {
 			System.out.println("URL Verified: Test fail");
 		}
 
-		
+
 
 		Reporter.log("BrowserSetup: " + browser + " Successfull", true);
 
@@ -71,6 +80,55 @@ public class BaseConfig {
 
 	}
 
+	public void UserCreation() throws IOException {
+		{ Randomnumbergeneration ranObj=new Randomnumbergeneration();
+
+
+		String randomGmail="abc"+ranObj.generaterandomnumber()+"@abcgmail.com";
+		String email = randomGmail;
+
+		SignUpPage signuppage_obj=new SignUpPage(driver);
+		ReadExcelFile excelfilelibrary = new ReadExcelFile();
+		LoginPage l=new LoginPage(driver);
+		String username = excelfilelibrary.readData("LoginDetails", 2, 0);
+		String password = excelfilelibrary.readData("LoginDetails", 1, 2);
+		String firstname = excelfilelibrary.readData("LoginDetails", 1, 3);
+		String lastname = excelfilelibrary.readData("LoginDetails", 1, 4);
+		String company = excelfilelibrary.readData("LoginDetails", 1, 5);
+		String address = excelfilelibrary.readData("LoginDetails", 1, 6);
+		String address2 = excelfilelibrary.readData("LoginDetails", 1, 7);
+		String state = excelfilelibrary.readData("LoginDetails", 1, 8);
+		String city = excelfilelibrary.readData("LoginDetails", 1, 9);
+		String zipcode = excelfilelibrary.readData("LoginDetails", 1, 10);
+		String mobilenumber = excelfilelibrary.readData("LoginDetails", 1, 11);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		signuppage_obj.getsignuplink().click();
+		signuppage_obj.getsignup_name().sendKeys(username);
+		signuppage_obj.getsignup_mail().sendKeys(email);
+		signuppage_obj.getsignup_button().click();
+		signuppage_obj.getfgender().click();
+		signuppage_obj.getpwd_textfield().sendKeys(password);
+		Select obj = new Select(signuppage_obj.getdaysdp());
+		obj.selectByIndex(4);
+		Select obj1 = new Select(signuppage_obj.getmonthsdp());
+		obj1.selectByIndex(6);
+		Select obj3 = new Select(signuppage_obj.getyearsdp());
+		obj3.selectByIndex(6);
+		signuppage_obj.getnewsletter().click();
+		signuppage_obj.getcheckbox2().click();
+		signuppage_obj.getfirst_name().sendKeys(firstname);
+		signuppage_obj.getlast_name().sendKeys(lastname);
+		signuppage_obj.getcompany().sendKeys(company);
+		signuppage_obj.getaddress1().sendKeys(address);
+		signuppage_obj.getaddress2().sendKeys(address2);
+		signuppage_obj.getstate().sendKeys(state);
+		signuppage_obj.getcity().sendKeys(city);
+		signuppage_obj.getzipcode().sendKeys(zipcode);
+		signuppage_obj.getmobile_number().sendKeys(mobilenumber);
+		signuppage_obj.getcreateAccount().click();
+		l.getlogout().click();
+		}
+	}
 	@AfterClass
 	public void closebrowser() {
 		// close the browser

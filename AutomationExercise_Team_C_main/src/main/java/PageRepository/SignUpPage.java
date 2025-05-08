@@ -75,12 +75,12 @@ public class SignUpPage {
 	}
 
 	
-	@FindBy(xpath = "//label[@for='newsletter']")
+	@FindBy(xpath = "//input[@id='newsletter']")
 	private WebElement newsletter;
 	public WebElement getnewsletter() {
 		return newsletter;
 	}
-	@FindBy(xpath = "//label[text()='Receive special offers from our partners!']")
+	@FindBy(xpath = "//input[@id='optin']")
 	private WebElement checkbox2;
 	public WebElement getcheckbox2() {
 		return checkbox2;

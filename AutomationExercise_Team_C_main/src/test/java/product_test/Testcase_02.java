@@ -12,7 +12,7 @@ import excelutility.ReadExcelFile;
 public class Testcase_02 extends BaseConfig {
 	@Test
 	public void LoginUser_with_correct_email_and_password() throws IOException {
-
+		UserCreation();
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
 
 		String email = excelfilelibrary.readData("LoginDetails", 2, 1);
@@ -23,7 +23,7 @@ public class Testcase_02 extends BaseConfig {
 		// creating ref variable
 		LoginPage loginpageobj = new LoginPage(driver);
 		// stpe4: Click on 'Signup / Login' button
-		loginpageobj.getlogin_page().click();
+		//loginpageobj.getlogin_page().click();
 		// step5: Verify 'Login to your account' is visible
 		boolean result = loginpageobj.getloginaccount().isDisplayed();
 		if (result) {

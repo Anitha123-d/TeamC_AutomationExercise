@@ -2,10 +2,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test thread-count="5" name="Test">
-  <parameter name="Browser" value="chrome"></parameter> 
+   <parameter name="Browser" value="chrome"></parameter> 
   <parameter name="AuthorName" value="User1"></parameter> 
+ 
     <classes>
       <class name="product_test.Testcase_01"/>
+      <class name="product_test.Testcase_02"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -2,23 +2,34 @@ package product_test;
 
 import java.io.IOException;
 import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import GenericRepository.BaseConfig;
 import PageRepository.SignUpPage;
 import excelutility.ReadExcelFile;
+import javautility.Randomnumbergeneration;
 
 public class Testcase_01 extends BaseConfig {
 
 	@Test
 	public void Register_User() throws IOException
 
-	{
+	{ Randomnumbergeneration ranObj=new Randomnumbergeneration();
+	
+		
+		String randomGmail="abc"+ranObj.generaterandomnumber()+"@abcgmail.com";
+		String email = randomGmail;
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
-
+		JavascriptExecutor js=(JavascriptExecutor) driver;
 		String username = excelfilelibrary.readData("LoginDetails", 2, 0);
-		String email = excelfilelibrary.readData("LoginDetails", 2, 1);
 		String password = excelfilelibrary.readData("LoginDetails", 1, 2);
 		String firstname = excelfilelibrary.readData("LoginDetails", 1, 3);
 		String lastname = excelfilelibrary.readData("LoginDetails", 1, 4);
@@ -77,8 +88,11 @@ public class Testcase_01 extends BaseConfig {
 		// /Step9.5:Fill detail select year
 		Select obj3 = new Select(signuppage_obj.getyearsdp());
 		obj3.selectByIndex(6);
+		String jscode1="arguments[0].scrollIntoView(false)";
+		js.executeScript(jscode1,obj3);
 		/// Step 10: Select checkbox 'Sign up for our newsletter!'
-		signuppage_obj.getnewsletter().click();
+		wait.until(ExpectedConditions.elementToBeClickable(signuppage_obj.getnewsletter())).click();
+		
 		// /Step 11:Select checkbox 'Receive special offers from our partners!'
 		signuppage_obj.getcheckbox2().click();
 		/// Step 12.1:Fill details: enter First name
@@ -118,6 +132,8 @@ public class Testcase_01 extends BaseConfig {
 		} else {
 			System.out.println(" login as user is not displayed");
 		}
+		
+		
 		// Step 17:Click 'Delete Account' button
 		signuppage_obj.getdelete_account().click();
 		// Step 18.1: Verify that 'ACCOUNT DELETED!' is visible

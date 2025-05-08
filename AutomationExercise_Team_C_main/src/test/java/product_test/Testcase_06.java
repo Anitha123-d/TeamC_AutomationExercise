@@ -26,9 +26,9 @@ public class Testcase_06 extends BaseConfig {
 			String file = properfilelibrary.readData("file");
 			ReadExcelFile excelfilelibrary = new ReadExcelFile();
 			String name = excelfilelibrary.readData("ContactUsDetails", 1, 0);
-			String email = excelfilelibrary.readData("ContactUsDetails", 1, 2);
-			String subject = excelfilelibrary.readData("ContactUsDetails", 1, 3);
-			String message = excelfilelibrary.readData("ContactUsDetails", 1, 4);
+			String email = excelfilelibrary.readData("ContactUsDetails", 1, 1);
+			String subject = excelfilelibrary.readData("ContactUsDetails", 1, 2);
+			String message = excelfilelibrary.readData("ContactUsDetails", 1, 3);
 
 		// Verify that home page is visible successfully
 		HomePage homepageobj = new HomePage(driver);
