@@ -3,6 +3,8 @@ package GenericRepository;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,14 +13,11 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-import org.testng.asserts.SoftAssert;
 
-import PageRepository.HomePage;
 import PageRepository.LoginPage;
 import PageRepository.SignUpPage;
 import PropertyUtility.ReadPropertyFile;
 import excelutility.ReadExcelFile;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import javautility.Randomnumbergeneration;
 
 public class BaseConfig {
@@ -90,17 +89,18 @@ public class BaseConfig {
 		SignUpPage signuppage_obj=new SignUpPage(driver);
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
 		LoginPage l=new LoginPage(driver);
-		String username = excelfilelibrary.readData("LoginDetails", 2, 0);
-		String password = excelfilelibrary.readData("LoginDetails", 1, 2);
-		String firstname = excelfilelibrary.readData("LoginDetails", 1, 3);
-		String lastname = excelfilelibrary.readData("LoginDetails", 1, 4);
-		String company = excelfilelibrary.readData("LoginDetails", 1, 5);
-		String address = excelfilelibrary.readData("LoginDetails", 1, 6);
-		String address2 = excelfilelibrary.readData("LoginDetails", 1, 7);
-		String state = excelfilelibrary.readData("LoginDetails", 1, 8);
-		String city = excelfilelibrary.readData("LoginDetails", 1, 9);
-		String zipcode = excelfilelibrary.readData("LoginDetails", 1, 10);
-		String mobilenumber = excelfilelibrary.readData("LoginDetails", 1, 11);
+		String username = excelfilelibrary.readData("LoginDetails", 4, 0);
+		//String randomGmail = excelfilelibrary.readData("LoginDetails", 4, 1);
+		String password = excelfilelibrary.readData("LoginDetails", 4, 2);
+		String firstname = excelfilelibrary.readData("LoginDetails", 4, 3);
+		String lastname = excelfilelibrary.readData("LoginDetails", 4, 4);
+		String company = excelfilelibrary.readData("LoginDetails", 4, 5);
+		String address = excelfilelibrary.readData("LoginDetails", 4, 6);
+		String address2 = excelfilelibrary.readData("LoginDetails", 4, 7);
+		String state = excelfilelibrary.readData("LoginDetails", 4, 8);
+		String city = excelfilelibrary.readData("LoginDetails", 4, 9);
+		String zipcode = excelfilelibrary.readData("LoginDetails", 4, 10);
+		String mobilenumber = excelfilelibrary.readData("LoginDetails", 4, 11);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		signuppage_obj.getsignuplink().click();
 		signuppage_obj.getsignup_name().sendKeys(username);
@@ -114,8 +114,12 @@ public class BaseConfig {
 		obj1.selectByIndex(6);
 		Select obj3 = new Select(signuppage_obj.getyearsdp());
 		obj3.selectByIndex(6);
-		signuppage_obj.getnewsletter().click();
-		signuppage_obj.getcheckbox2().click();
+		
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",signuppage_obj.getnewsletter());
+		js.executeScript("arguments[0].click();",signuppage_obj.getcheckbox2());
+		
+	
 		signuppage_obj.getfirst_name().sendKeys(firstname);
 		signuppage_obj.getlast_name().sendKeys(lastname);
 		signuppage_obj.getcompany().sendKeys(company);
@@ -125,14 +129,15 @@ public class BaseConfig {
 		signuppage_obj.getcity().sendKeys(city);
 		signuppage_obj.getzipcode().sendKeys(zipcode);
 		signuppage_obj.getmobile_number().sendKeys(mobilenumber);
-		signuppage_obj.getcreateAccount().click();
-		l.getlogout().click();
+		js.executeScript("arguments[0].click();",signuppage_obj.getcreateAccount());
+		
+		//l.getlogout().click();
 		}
 	}
 	@AfterClass
 	public void closebrowser() {
 		// close the browser
-		driver.quit();
+		//driver.quit();
 		Reporter.log("Closebrowser Successfull", true);
 	}
 }

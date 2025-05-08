@@ -174,7 +174,7 @@ public class ProductPage {
 					public WebElement getproducts_button() {
 						return products_button;
 					}
-					@FindBy(xpath = "(//li[@class='list-group-item'][18])[4]")
+					@FindBy(xpath = "//div[contains(@class,'alert-succes')]")
 					private WebElement orderplacedsuccess;
 					public WebElement getorderplacedsuccess() {
 						return orderplacedsuccess;

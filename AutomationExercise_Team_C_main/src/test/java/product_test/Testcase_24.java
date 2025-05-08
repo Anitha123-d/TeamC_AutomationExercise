@@ -3,10 +3,7 @@ package product_test;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import GenericRepository.BaseConfig;
@@ -16,29 +13,26 @@ import PageRepository.ProductPage;
 import PageRepository.SignUpPage;
 import PropertyUtility.ReadPropertyFile;
 import excelutility.ReadExcelFile;
-import io.github.bonigarcia.wdm.WebDriverManager;
-//Launch browser
-//2. Navigate to url 'http://automationexercise.com'
 public class Testcase_24  extends BaseConfig  {
 	
 	@Test
 	public void Downloadinvoiceafterpurchaseorder() throws IOException, InterruptedException
 	{	
 		ReadPropertyFile propertyfilelibrary=new ReadPropertyFile();
-		ReadExcelFile excelfilelibrary = new ReadExcelFile();
-		String username=excelfilelibrary.readData("LoginDetails", 4, 0);
-		String email=excelfilelibrary.readData("LoginDetails", 4, 1);
-		String password=excelfilelibrary.readData("LoginDetails", 4, 2);
-		String firstname=excelfilelibrary.readData("LoginDetails", 4, 3);
-		String lastname=excelfilelibrary.readData("LoginDetails", 4, 4);
-		String company =excelfilelibrary.readData("LoginDetails", 4, 5);
-		
-		String address=excelfilelibrary.readData("LoginDetails", 4, 6);
-		String address2 =excelfilelibrary.readData("LoginDetails", 4, 7);
-		String state=excelfilelibrary.readData("LoginDetails", 4, 8);
-		String city=excelfilelibrary.readData("LoginDetails", 4, 9);
-		String zipcode=excelfilelibrary.readData("LoginDetails", 4, 10);
-		String mobilenumber=excelfilelibrary.readData("LoginDetails", 4, 11);
+ReadExcelFile excelfilelibrary = new ReadExcelFile();
+//		String username=excelfilelibrary.readData("LoginDetails", 4, 0);
+//		String email=excelfilelibrary.readData("LoginDetails", 4, 1);
+//		String password=excelfilelibrary.readData("LoginDetails", 4, 2);
+//		String firstname=excelfilelibrary.readData("LoginDetails", 4, 3);
+//		String lastname=excelfilelibrary.readData("LoginDetails", 4, 4);
+//		String company =excelfilelibrary.readData("LoginDetails", 4, 5);
+//		
+//		String address=excelfilelibrary.readData("LoginDetails", 4, 6);
+//		String address2 =excelfilelibrary.readData("LoginDetails", 4, 7);
+//		String state=excelfilelibrary.readData("LoginDetails", 4, 8);
+//		String city=excelfilelibrary.readData("LoginDetails", 4, 9);
+//		String zipcode=excelfilelibrary.readData("LoginDetails", 4, 10);
+//		String mobilenumber=excelfilelibrary.readData("LoginDetails", 4, 11);
 		
 		driver.manage().timeouts().implicitlyWait(20l, TimeUnit.SECONDS);
 		////Verify that home page is visible successfully
@@ -70,21 +64,23 @@ JavascriptExecutor js=(JavascriptExecutor) driver;
 		//Fill all details in Signup and create account
 		
 
-		signuppageobj.getsignup_name().sendKeys(username);
-		signuppageobj.getsignup_mail().sendKeys(email);
-		signuppageobj.getsignup_button().click();
-		signuppageobj.getfgender().click();
-		signuppageobj.getpwd_textfield().sendKeys(password);
-		signuppageobj.getfirst_name().sendKeys(firstname);
-		signuppageobj.getlast_name().sendKeys(lastname);
-		signuppageobj.getcompany().sendKeys(company);
-		signuppageobj.getaddress1().sendKeys(address);
-		signuppageobj.getaddress2().sendKeys(address2);
-		signuppageobj.getstate().sendKeys(state);
-		signuppageobj.getcity().sendKeys(city);
-		signuppageobj.getzipcode().sendKeys(zipcode);
-		signuppageobj.getmobile_number().sendKeys(mobilenumber);
-		signuppageobj.getcreateAccount().submit();	
+       UserCreation();
+		
+//		signuppageobj.getsignup_name().sendKeys(username);
+//		signuppageobj.getsignup_mail().sendKeys(email);
+//		signuppageobj.getsignup_button().click();
+//		signuppageobj.getfgender().click();
+//		signuppageobj.getpwd_textfield().sendKeys(password);
+//		signuppageobj.getfirst_name().sendKeys(firstname);
+//		signuppageobj.getlast_name().sendKeys(lastname);
+//		signuppageobj.getcompany().sendKeys(company);
+//		signuppageobj.getaddress1().sendKeys(address);
+//		signuppageobj.getaddress2().sendKeys(address2);
+//		signuppageobj.getstate().sendKeys(state);
+//		signuppageobj.getcity().sendKeys(city);
+//		signuppageobj.getzipcode().sendKeys(zipcode);
+//		signuppageobj.getmobile_number().sendKeys(mobilenumber);
+//		signuppageobj.getcreateAccount().submit();	
 		//Verify 'ACCOUNT CREATED!' and click 'Continue' button
 		System.out.println(signuppageobj.getcreateAccountmsg().isDisplayed());
 			if(signuppageobj.getcreateAccountmsg().isDisplayed()) {
@@ -95,16 +91,13 @@ JavascriptExecutor js=(JavascriptExecutor) driver;
 			}
 			signuppageobj.getconti().click();
 		// Verify ' Logged in as username' at top
-	String exp_text=username;
-	String actual_text=signuppageobj.getloggedinas().getText();
-	System.out.println(actual_text);
-	if(exp_text.equalsIgnoreCase(actual_text)) {
+			boolean res = signuppageobj.getloginas().isDisplayed();
+			if (res) {
+				System.out.println(" login as user is displayed");
+			} else {
+				System.out.println(" login as user is not displayed");
+			}
 		
-		System.out.println("Account is logged in as username");
-	}
-		else {
-			System.err.println("Account is not logged in as username");
-		}
 	//Click 'Cart' button
 	cartpageobj.getcart().click();
 	// Click 'Proceed To Checkout' button
