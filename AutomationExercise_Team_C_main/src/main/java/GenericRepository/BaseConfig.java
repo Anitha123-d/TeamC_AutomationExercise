@@ -130,8 +130,9 @@ public class BaseConfig {
 		signuppage_obj.getzipcode().sendKeys(zipcode);
 		signuppage_obj.getmobile_number().sendKeys(mobilenumber);
 		js.executeScript("arguments[0].click();",signuppage_obj.getcreateAccount());
+		signuppage_obj.getconti().click();
 		
-		//l.getlogout().click();
+		l.getlogout().click();
 		}
 	}
 	@AfterClass
