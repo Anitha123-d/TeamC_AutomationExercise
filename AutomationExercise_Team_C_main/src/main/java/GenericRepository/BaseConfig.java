@@ -130,9 +130,15 @@ public class BaseConfig {
 		signuppage_obj.getzipcode().sendKeys(zipcode);
 		signuppage_obj.getmobile_number().sendKeys(mobilenumber);
 		js.executeScript("arguments[0].click();",signuppage_obj.getcreateAccount());
+		boolean result1 = signuppage_obj.getcreateAccountmsg().isDisplayed();
+		if (result1) {
+			System.out.println(" Congratulations! Your new account has been successfully created! is displayed");
+		} else {
+			System.out.println(" Congratulations! Your new account has been successfully created! is not displayed");
+		}
 		signuppage_obj.getconti().click();
 		
-		l.getlogout().click();
+		//l.getlogout().click();
 		}
 	}
 	@AfterClass

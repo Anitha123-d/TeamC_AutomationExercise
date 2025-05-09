@@ -148,7 +148,7 @@ public class SignUpPage {
 		return createAccount;
 	}
 
-	@FindBy(xpath = "//p[text()='Congratulations! Your new account has been successfully created!']")
+	@FindBy(xpath = "//b[normalize-space(text())='Account Created!']")
 	private WebElement createAccountmsg;
 	public WebElement getcreateAccountmsg() {
 		return createAccountmsg;

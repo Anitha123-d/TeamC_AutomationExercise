@@ -5,34 +5,6 @@
     <parameter name="AuthorName" value="User1"/>
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="product_test.Testcase_15">
-        <methods>
-          <include name="VerifyProductquantityinCart"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_15 -->
-      <class name="product_test.Testcase_03">
-        <methods>
-          <include name="Login_User_with_incorrect_email_and_password"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_03 -->
-      <class name="product_test.Testcase_12">
-        <methods>
-          <include name="AddProductsinCart"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_12 -->
-      <class name="product_test.Testcase_18">
-        <methods>
-          <include name="View_Category_Products"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_18 -->
       <class name="product_test.Testcase_16">
         <methods>
           <include name="Login_Before_Checkout"/>
@@ -40,6 +12,13 @@
           <include name="closebrowser"/>
         </methods>
       </class> <!-- product_test.Testcase_16 -->
+      <class name="product_test.Testcase_15">
+        <methods>
+          <include name="VerifyProductquantityinCart"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_15 -->
       <class name="product_test.Testcase_06">
         <methods>
           <include name="browserSetup"/>
@@ -82,13 +61,13 @@
           <include name="closebrowser"/>
         </methods>
       </class> <!-- product_test.Testcase_02 -->
-      <class name="product_test.Testcase_05">
+      <class name="product_test.Testcase_08">
         <methods>
+          <include name="VerifyAll_Products_and_product_detail_page"/>
           <include name="browserSetup"/>
           <include name="closebrowser"/>
-          <include name="Register_User_with_existing_email"/>
         </methods>
-      </class> <!-- product_test.Testcase_05 -->
+      </class> <!-- product_test.Testcase_08 -->
       <class name="product_test.Testcase_01">
         <methods>
           <include name="browserSetup"/>
@@ -96,6 +75,20 @@
           <include name="Register_User"/>
         </methods>
       </class> <!-- product_test.Testcase_01 -->
+      <class name="product_test.Testcase_03">
+        <methods>
+          <include name="Login_User_with_incorrect_email_and_password"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_03 -->
+      <class name="product_test.Testcase_18">
+        <methods>
+          <include name="View_Category_Products"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_18 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [RegressionSuite] -->

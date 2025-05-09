@@ -40,14 +40,13 @@ public void Verifyaddressdetailsincheckoutpage() throws IOException {
 		UserCreation();
 
 		//Verify 'ACCOUNT CREATED!' and click 'Continue' button
-System.out.println(signuppageobj.getcreateAccountmsg().isDisplayed());
-	if(signuppageobj.getcreateAccountmsg().isDisplayed()) {
-		System.out.println("account created is displayed");
-	}
-	else {
-		System.out.println("Account created is not displayed");
-	}
-	signuppageobj.getconti().click();
+//		boolean result1 = signuppageobj.getcreateAccountmsg().isDisplayed();
+//		if (result1) {
+//			System.out.println(" Congratulations! Your new account has been successfully created! is displayed");
+//		} else {
+//			System.out.println(" Congratulations! Your new account has been successfully created! is not displayed");
+//		}
+//	signuppageobj.getconti().click();
 	//Verify ' Logged in as username' at top
 	boolean res = signuppageobj.getloginas().isDisplayed();
 	if (res) {

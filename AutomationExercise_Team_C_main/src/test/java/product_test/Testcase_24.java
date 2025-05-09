@@ -82,14 +82,14 @@ JavascriptExecutor js=(JavascriptExecutor) driver;
 //		signuppageobj.getmobile_number().sendKeys(mobilenumber);
 //		signuppageobj.getcreateAccount().submit();	
 		//Verify 'ACCOUNT CREATED!' and click 'Continue' button
-		System.out.println(signuppageobj.getcreateAccountmsg().isDisplayed());
-			if(signuppageobj.getcreateAccountmsg().isDisplayed()) {
-				System.out.println("account created is displayed");
-			}
-			else {
-				System.out.println("Account created is not displayed");
-			}
-			signuppageobj.getconti().click();
+//		System.out.println(signuppageobj.getcreateAccountmsg().isDisplayed());
+//			if(signuppageobj.getcreateAccountmsg().isDisplayed()) {
+//				System.out.println("account created is displayed");
+//			}
+//			else {
+//				System.out.println("Account created is not displayed");
+//			}
+//			signuppageobj.getconti().click();
 		// Verify ' Logged in as username' at top
 			boolean res = signuppageobj.getloginas().isDisplayed();
 			if (res) {
