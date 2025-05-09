@@ -137,7 +137,7 @@ public class BaseConfig {
 	@AfterClass
 	public void closebrowser() {
 		// close the browser
-		//driver.quit();
+		driver.quit();
 		Reporter.log("Closebrowser Successfull", true);
 	}
 }

@@ -12,13 +12,6 @@
           <include name="closebrowser"/>
         </methods>
       </class> <!-- product_test.Testcase_15 -->
-      <class name="product_test.Testcase_20">
-        <methods>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-          <include name="Search_Products_and_Verify_Cart_After_Login"/>
-        </methods>
-      </class> <!-- product_test.Testcase_20 -->
       <class name="product_test.Testcase_03">
         <methods>
           <include name="Login_User_with_incorrect_email_and_password"/>
@@ -89,13 +82,6 @@
           <include name="closebrowser"/>
         </methods>
       </class> <!-- product_test.Testcase_02 -->
-      <class name="product_test.Testcase_23">
-        <methods>
-          <include name="Verifyaddressdetailsincheckoutpage"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_23 -->
       <class name="product_test.Testcase_05">
         <methods>
           <include name="browserSetup"/>
