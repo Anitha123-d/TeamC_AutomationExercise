@@ -90,7 +90,7 @@ public class ReadExcelFile implements FrameworkConstant {
 
 	}
 
-	public String updateData(String sheet, int row, int column) {
+	public String updateData(String sheet, int row, int column,String data) {
 		// Step1:Convert physical file into java readable object By using
 		// FileInputStream Class
 		try {
@@ -107,7 +107,7 @@ public class ReadExcelFile implements FrameworkConstant {
 			e.printStackTrace();
 		}
 		// Step3:write the data
-		wb.getSheet(sheet).createRow(row).createCell(column).setCellValue("data");
+		wb.getSheet(sheet).createRow(row).createCell(column).setCellValue(data);
 		// Step4: close the workbook
 		try {
 			wb.close();

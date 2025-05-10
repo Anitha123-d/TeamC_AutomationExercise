@@ -14,8 +14,8 @@ public class Testcase_05 extends BaseConfig {
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		String username = excelfilelibrary.readData("LoginDetails", 1, 0);
-		String email = excelfilelibrary.readData("LoginDetails", 1, 1);
+		String username = excelfilelibrary.readData("LoginDetails", 6, 0);
+		String email = excelfilelibrary.readData("LoginDetails", 6, 1);
 
 		SignUpPage signuppage_obj = new SignUpPage(driver);
 		// stpe4: Click on 'Signup / Login' button

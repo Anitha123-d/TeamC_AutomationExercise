@@ -13,15 +13,18 @@ public class Testcase_02 extends BaseConfig {
 	@Test
 	public void LoginUser_with_correct_email_and_password() throws IOException {
 		UserCreation();
+		LoginPage loginpageobj = new LoginPage(driver);
+		loginpageobj.getlogout().click();
+		
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
 
-		String email = excelfilelibrary.readData("LoginDetails", 2, 1);
-		String password = excelfilelibrary.readData("LoginDetails", 2, 2);
+		String email = excelfilelibrary.readData("LoginDetails", 4, 1);
+		String password = excelfilelibrary.readData("LoginDetails", 4, 2);
 		// wait stmt
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		// creating ref variable
-		LoginPage loginpageobj = new LoginPage(driver);
+		//LoginPage loginpageobj = new LoginPage(driver);
 		// stpe4: Click on 'Signup / Login' button
 		//loginpageobj.getlogin_page().click();
 		// step5: Verify 'Login to your account' is visible
