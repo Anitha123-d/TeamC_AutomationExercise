@@ -88,9 +88,11 @@ public class BaseConfig {
 
 		SignUpPage signuppage_obj=new SignUpPage(driver);
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
+		excelfilelibrary.updateData("LoginDetails",4,1,email);
+		
 		LoginPage l=new LoginPage(driver);
 		String username = excelfilelibrary.readData("LoginDetails", 4, 0);
-		//String randomGmail = excelfilelibrary.readData("LoginDetails", 4, 1);
+		String gmail = excelfilelibrary.readData("LoginDetails", 4, 1);
 		String password = excelfilelibrary.readData("LoginDetails", 4, 2);
 		String firstname = excelfilelibrary.readData("LoginDetails", 4, 3);
 		String lastname = excelfilelibrary.readData("LoginDetails", 4, 4);
@@ -104,7 +106,7 @@ public class BaseConfig {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		signuppage_obj.getsignuplink().click();
 		signuppage_obj.getsignup_name().sendKeys(username);
-		signuppage_obj.getsignup_mail().sendKeys(email);
+		signuppage_obj.getsignup_mail().sendKeys(gmail);
 		signuppage_obj.getsignup_button().click();
 		signuppage_obj.getfgender().click();
 		signuppage_obj.getpwd_textfield().sendKeys(password);

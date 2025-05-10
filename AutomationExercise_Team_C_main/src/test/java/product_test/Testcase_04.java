@@ -15,8 +15,8 @@ public class Testcase_04 extends BaseConfig {
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-		String email = excelfilelibrary.readData("LoginDetails", 1, 0);
-		String password = excelfilelibrary.readData("LoginDetails", 1, 2);
+		String email = excelfilelibrary.readData("LoginDetails", 6, 1);
+		String password = excelfilelibrary.readData("LoginDetails", 6, 2);
 		LoginPage loginpage_obj = new LoginPage(driver);
 		// step4: Click on 'Signup / Login' button
 		loginpage_obj.getsignup().click();
