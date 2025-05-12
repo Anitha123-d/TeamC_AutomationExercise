@@ -8,6 +8,10 @@
     <classes>
       <class name="product_test.Testcase_01"/>
       <class name="product_test.Testcase_02"/>
+      <class name="product_test.Testcase_03"/>
+      <class name="product_test.Testcase_04"/>
+      <class name="product_test.Testcase_05"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

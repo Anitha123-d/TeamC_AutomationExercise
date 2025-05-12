@@ -14,7 +14,7 @@ public class Testcase_02 extends BaseConfig {
 	public void LoginUser_with_correct_email_and_password() throws IOException {
 		UserCreation();
 		LoginPage loginpageobj = new LoginPage(driver);
-		loginpageobj.getlogout().click();
+		
 		
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
 

@@ -114,6 +114,27 @@ public class ReadExcelFile implements FrameworkConstant {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		try {
+			fos = new FileOutputStream(excelpath);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		// step5: save the data
+		try {
+			wb.write(fos);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// step6: close the workbook
+		try {
+			wb.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		return sheet;
 
 	}
