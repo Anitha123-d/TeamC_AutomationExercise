@@ -5,13 +5,20 @@
     <parameter name="AuthorName" value="User1"/>
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="product_test.Testcase_23">
+      <class name="product_test.Testcase_15">
         <methods>
-          <include name="Verifyaddressdetailsincheckoutpage"/>
+          <include name="VerifyProductquantityinCart"/>
           <include name="browserSetup"/>
           <include name="closebrowser"/>
         </methods>
-      </class> <!-- product_test.Testcase_23 -->
+      </class> <!-- product_test.Testcase_15 -->
+      <class name="product_test.Testcase_13">
+        <methods>
+          <include name="VerifyProductquantityinCart"/>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- product_test.Testcase_13 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

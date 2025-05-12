@@ -5,7 +5,12 @@
   <parameter name="Browser" value="chrome"></parameter> 
   <parameter name="AuthorName" value="User1"></parameter> 
     <classes>
-      <class name="product_test.Testcase_23"/>
+      <class name="product_test.Testcase_11"/>
+      <class name="product_test.Testcase_12"/>
+      <class name="product_test.Testcase_13"/>
+      <class name="product_test.Testcase_14"/>
+      <class name="product_test.Testcase_15"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

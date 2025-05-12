@@ -1,5 +1,6 @@
 package product_test;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -15,13 +16,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Testcase_13 extends BaseConfig{
 @Test
-public void VerifyProductquantityinCart() throws InterruptedException {
+public void VerifyProductquantityinCart() throws InterruptedException, IOException {
 	
 	
 	
-	ReadPropertyFile propertyfilelibrary = new ReadPropertyFile();
+	ReadExcelFile excelfilelibrary = new ReadExcelFile();
+	String quantity=excelfilelibrary.readData("PaymentDetails", 1, 7);
 
-	String quantity = propertyfilelibrary.readData("quantity");
+	
 
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
@@ -33,18 +35,19 @@ public void VerifyProductquantityinCart() throws InterruptedException {
 		prodobj.getviewpro().click();
 		boolean result = prodobj.getproductdetails().isDisplayed();
 		if (result) {
-			System.out.println(result + "details of the product are visible");
+			System.out.println(result + "details of the products are visible");
 		} else {
-			System.out.println("details of the product are not visible");
+			System.out.println("details of the products are not visible");
 		}
 		// add quantity to 4
 		prodobj.getquantity().clear();
 		prodobj.getquantity().sendKeys(quantity);
 		// Click 'Add to cart' button
-		prodobj.getaddquantity().click();
+		Thread.sleep(2000);
+		prodobj.getviewaddquantity().click();
 
 		// Click 'View Cart' button
-		prodobj.getviewaddquantity().click();
+
 		prodobj.getviewprocart().click();
 		// Verify that product is displayed in cart page with exact quantity
 		boolean res = prodobj.getviewdetails().isDisplayed();
