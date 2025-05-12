@@ -25,31 +25,22 @@ public class Testcase_14 extends BaseConfig{
 @Test
 public void VerifyProductquantityinCart() throws InterruptedException, IOException {
 	
-	ReadPropertyFile propertyfilelibrary = new ReadPropertyFile();
+	
+	
 
 	
-	String commentbox = propertyfilelibrary.readData("commentbox");
-	String cardname = propertyfilelibrary.readData("cardname");
-	String cardnumber = propertyfilelibrary.readData("cardnumber");
-	String cvcno = propertyfilelibrary.readData("cvcno");
-	String expirymonth = propertyfilelibrary.readData("expirymonth");
-	String expiryyear = propertyfilelibrary.readData("expiryyear");
-
 	
 	ReadExcelFile excelfilelibrary = new ReadExcelFile();
-	String username = excelfilelibrary.readData("LoginDetails", 2, 0);
-	String email = excelfilelibrary.readData("LoginDetails", 2, 1);
-	String password = excelfilelibrary.readData("LoginDetails", 1, 2);
-	String firstname = excelfilelibrary.readData("LoginDetails", 1, 3);
-	String lastname = excelfilelibrary.readData("LoginDetails", 1, 4);
-	String company = excelfilelibrary.readData("LoginDetails", 1, 5);
-	String address = excelfilelibrary.readData("LoginDetails", 1, 6);
-	String address2 = excelfilelibrary.readData("LoginDetails", 1, 7);
-	String state = excelfilelibrary.readData("LoginDetails", 1, 8);
-	String city = excelfilelibrary.readData("LoginDetails", 1, 9);
-	String zipcode = excelfilelibrary.readData("LoginDetails", 1, 9);
-	String mobilenumber = excelfilelibrary.readData("LoginDetails", 1, 9);
+	
+	
+	String commentbox = excelfilelibrary.readData("PaymentDetails",1,0);
+	String cardname = excelfilelibrary.readData("PaymentDetails",1,1);
+	String cardnumber = excelfilelibrary.readData("PaymentDetails",1,2);
+	String cvcno = excelfilelibrary.readData("PaymentDetails",1,3);
+	String expirymonth = excelfilelibrary.readData("PaymentDetails",1,4);
+	String expiryyear = excelfilelibrary.readData("PaymentDetails",1,5);
 
+	
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 	
@@ -73,46 +64,13 @@ public void VerifyProductquantityinCart() throws InterruptedException, IOExcepti
 		cart.getproceedtocheckout().click();
 		// Click 'Register / Login' button
 		cart.getregisterlogin().click();
-		// Fill all details in Signup and create account
 		SignUpPage createacc = new SignUpPage(driver);
-		createacc.getsignup_name().sendKeys(username);
-		createacc.getsignup_mail().sendKeys(email);
-		createacc.getsignup_button().click();
-		createacc.getfgender().click();
-		createacc.getpwd_textfield().sendKeys(password);
-		Select dpobj = new Select(createacc.getdaysdp());
-		dpobj.selectByIndex(4);
-		Select dpobj1 = new Select(createacc.getmonthsdp());
-		dpobj1.selectByIndex(11);
-		Select dpobj2 = new Select(createacc.getyearsdp());
-		dpobj2.selectByValue("2001");
-		createacc.getnewsletter().click();
-		createacc.getcheckbox2().click();
-		createacc.getfirst_name().sendKeys(firstname);
-		createacc.getlast_name().sendKeys(lastname);
-		createacc.getcompany().sendKeys(company);
-		createacc.getaddress1().sendKeys(address);
-		createacc.getaddress2().sendKeys(address2);
-		Select objdp3 = new Select(createacc.getcountry());
-		objdp3.selectByValue("India");
-		createacc.getstate().sendKeys(state);
-		createacc.getcity().sendKeys(city);
-		createacc.getzipcode().sendKeys(zipcode);
-		createacc.getmobile_number().sendKeys(mobilenumber);
-		createacc.getcreateAccount().click();
-		System.out.println(createacc.getcreateAccountmsg().getText());
-		// Verify 'ACCOUNT CREATED!' and click 'Continue' button
-		boolean result = createacc.getcreateAccountmsg().isDisplayed();
-		if (result) {
-			System.out.println("Account Created!");
-		} else {
-			System.out.println("Account not created");
-		}
-
-		createacc.getconti().click();
+		
+		Signup();
+		
 		// Verify ' Logged in as username' at top
 		boolean result2 = createacc.getloginas().isDisplayed();
-		if (result) {
+		if (result2) {
 			System.out.println("Logged in as is visible");
 		} else {
 			System.out.println("Logged in as is not visible");

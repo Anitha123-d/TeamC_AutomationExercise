@@ -1,7 +1,8 @@
 package product_test;
 
 
-	import java.time.Duration;
+	import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 	import org.openqa.selenium.JavascriptExecutor;
@@ -17,12 +18,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 	public class Testcase_11 extends BaseConfig{
 		@Test
-		public  void VerifySubscriptioninCartpage()throws InterruptedException {
+		public  void VerifySubscriptioninCartpage()throws InterruptedException, IOException {
 
+				ReadExcelFile excelfilelibrary=new ReadExcelFile();
+				String mail = excelfilelibrary.readData("LoginDetails", 1, 1);
 				
-			ReadPropertyFile propertyfilelibrary = new ReadPropertyFile();
-
-			String email = propertyfilelibrary.readData("email");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 					
@@ -43,7 +43,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 							System.out.println(data+"is not displayed");
 						}
 					 //Enter email address in input and click arrow button
-					 cart.getsubemail().sendKeys(email);
+					 cart.getsubemail().sendKeys(mail);
 						cart.getsubscribe().click();
 				//Verify success message 'You have been successfully subscribed!' is visible
 							boolean verify_success_message = cart.getsuccessmsg().isDisplayed();
