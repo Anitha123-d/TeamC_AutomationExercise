@@ -1,6 +1,7 @@
 package product_test;
 
 import java.io.IOException;
+
 import java.time.Duration;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
@@ -17,9 +18,12 @@ public class Testcase_16 extends BaseConfig {
 	public void Login_Before_Checkout() throws InterruptedException, IOException {
 
 		ReadExcelFile excelfilelibrary = new ReadExcelFile();
+		UserCreation();
+		LoginPage loginobj = new LoginPage(driver);
+		//loginobj.getlogout().click();
 
-		String email = excelfilelibrary.readData("LoginDetails", 3, 1);
-		String password = excelfilelibrary.readData("LoginDetails", 3, 2);
+		String email = excelfilelibrary.readData("LoginDetails", 4, 1);
+		String password = excelfilelibrary.readData("LoginDetails", 4, 2);
 
 		String commentbox = excelfilelibrary.readData("PaymentDetails", 1, 0);
 		String cardname = excelfilelibrary.readData("PaymentDetails", 1, 1);
@@ -29,7 +33,7 @@ public class Testcase_16 extends BaseConfig {
 		String expiryyear = excelfilelibrary.readData("PaymentDetails", 1, 5);
 
 		// Implicitly wait statement
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		// Create object for signup page
 		SignUpPage signupobj = new SignUpPage(driver);
@@ -37,7 +41,7 @@ public class Testcase_16 extends BaseConfig {
 		signupobj.getsignuplink().click();
 
 		// Create object for login page
-		LoginPage loginobj = new LoginPage(driver);
+		//LoginPage loginobj = new LoginPage(driver);
 
 		// Fill email, password and click 'Login' button
 		loginobj.getemail().sendKeys(email);
@@ -47,7 +51,7 @@ public class Testcase_16 extends BaseConfig {
 		loginobj.getlogin().click();
 
 		// Verify 'Logged in as username' at top
-		boolean result = loginobj.getloggedas().isDisplayed();
+		boolean result = signupobj.getloggedinas().isDisplayed();
 		if (result) {
 			System.out.println("logged in an user is Visible");
 		} else {
@@ -114,6 +118,7 @@ public class Testcase_16 extends BaseConfig {
 
 		// Click 'Pay and Confirm Order' button
 		paymentobj.getpayandconfirmorder().click();
+		Thread.sleep(1000);
 
 		// Verify success message 'Your order has been placed successfully!'
 		boolean result4 = paymentobj.getoderplacedmsg().isDisplayed();

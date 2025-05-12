@@ -53,18 +53,18 @@ public class Testcase_20 extends BaseConfig {
 		}
 
 		// Create an object for cart page
-		CartPage page = new CartPage(driver);
+		CartPage cartpageobj = new CartPage(driver);
 		String jscode1 = "arguments[0].scrollIntoView(true)";
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript(jscode1, page.getaddtocartpage());
+		js.executeScript(jscode1, cartpageobj.getaddtocartpage());
 
 		// Add those products to cart
-		page.getaddtocartpage().click();
+		cartpageobj.getaddtocartpage().click();
 
 		// Click 'Cart' button and verify that products are visible in cart
-		page.getcartpage().click();
+		cartpageobj.getcartpage().click();
 
-		boolean result3 = page.getcart().isDisplayed();
+		boolean result3 = cartpageobj.getcart().isDisplayed();
 		if (result3) {
 			System.out.println("Shopping cart products are displayed");
 		} else {
@@ -85,13 +85,13 @@ public class Testcase_20 extends BaseConfig {
 
 		login1.getlogin().click();
 
-		page.getviewcart1().click();
+		cartpageobj.getviewcart1().click();;
 
 		// Again, go to Cart page
-		page.getcart().click();
+		cartpageobj.getcart().click();
 
 		// Verify that those products are visible in cart after login as well
-		boolean result6 = page.getcart().isDisplayed();
+		boolean result6 = cartpageobj.getcart().isDisplayed();
 		if (result6) {
 			System.out.println("products are visible in cart after login are displayed");
 		} else {
