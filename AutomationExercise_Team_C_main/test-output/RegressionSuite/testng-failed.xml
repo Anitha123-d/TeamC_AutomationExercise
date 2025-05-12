@@ -22,8 +22,8 @@
       <class name="product_test.Testcase_06">
         <methods>
           <include name="browserSetup"/>
-          <include name="Contact_Us_Form"/>
           <include name="closebrowser"/>
+          <include name="Contact_Us_Form"/>
         </methods>
       </class> <!-- product_test.Testcase_06 -->
       <class name="product_test.Testcase_14">
@@ -40,13 +40,6 @@
           <include name="closebrowser"/>
         </methods>
       </class> <!-- product_test.Testcase_13 -->
-      <class name="product_test.Testcase_04">
-        <methods>
-          <include name="Logout_User"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_04 -->
       <class name="product_test.Testcase_11">
         <methods>
           <include name="VerifySubscriptioninCartpage"/>
@@ -54,6 +47,13 @@
           <include name="closebrowser"/>
         </methods>
       </class> <!-- product_test.Testcase_11 -->
+      <class name="product_test.Testcase_20">
+        <methods>
+          <include name="browserSetup"/>
+          <include name="closebrowser"/>
+          <include name="Search_Products_and_Verify_Cart_After_Login"/>
+        </methods>
+      </class> <!-- product_test.Testcase_20 -->
       <class name="product_test.Testcase_02">
         <methods>
           <include name="LoginUser_with_correct_email_and_password"/>
@@ -61,13 +61,6 @@
           <include name="closebrowser"/>
         </methods>
       </class> <!-- product_test.Testcase_02 -->
-      <class name="product_test.Testcase_08">
-        <methods>
-          <include name="VerifyAll_Products_and_product_detail_page"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_08 -->
       <class name="product_test.Testcase_01">
         <methods>
           <include name="browserSetup"/>
@@ -75,13 +68,13 @@
           <include name="Register_User"/>
         </methods>
       </class> <!-- product_test.Testcase_01 -->
-      <class name="product_test.Testcase_03">
+      <class name="product_test.Testcase_12">
         <methods>
-          <include name="Login_User_with_incorrect_email_and_password"/>
+          <include name="AddProductsinCart"/>
           <include name="browserSetup"/>
           <include name="closebrowser"/>
         </methods>
-      </class> <!-- product_test.Testcase_03 -->
+      </class> <!-- product_test.Testcase_12 -->
       <class name="product_test.Testcase_18">
         <methods>
           <include name="View_Category_Products"/>

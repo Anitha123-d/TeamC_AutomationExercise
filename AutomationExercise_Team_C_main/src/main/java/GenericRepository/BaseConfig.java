@@ -86,8 +86,8 @@ public class BaseConfig {
 		String randomGmail="abc"+ranObj.generaterandomnumber()+"@abcgmail.com";
 		String email = randomGmail;
 
-		SignUpPage signuppage_obj=new SignUpPage(driver);
-		ReadExcelFile excelfilelibrary = new ReadExcelFile();
+	SignUpPage signuppage_obj=new SignUpPage(driver);
+	ReadExcelFile excelfilelibrary = new ReadExcelFile();
 		excelfilelibrary.updateData("LoginDetails",4,1,email);
 		
 		LoginPage l=new LoginPage(driver);
@@ -142,6 +142,70 @@ public class BaseConfig {
 		
 		//l.getlogout().click();
 		}
+	}
+		public void Signup() throws IOException {
+			{ Randomnumbergeneration ranObj=new Randomnumbergeneration();
+
+
+			String randomGmail="abc"+ranObj.generaterandomnumber()+"@abcgmail.com";
+			String email = randomGmail;
+
+		SignUpPage signuppage_obj=new SignUpPage(driver);
+		ReadExcelFile excelfilelibrary = new ReadExcelFile();
+//			excelfilelibrary.updateData("LoginDetails",4,1,email);
+			
+			LoginPage l=new LoginPage(driver);
+			String username = excelfilelibrary.readData("LoginDetails", 4, 0);
+		//	String gmail = excelfilelibrary.readData("LoginDetails", 4, 1);
+			String password = excelfilelibrary.readData("LoginDetails", 4, 2);
+			String firstname = excelfilelibrary.readData("LoginDetails", 4, 3);
+			String lastname = excelfilelibrary.readData("LoginDetails", 4, 4);
+			String company = excelfilelibrary.readData("LoginDetails", 4, 5);
+			String address = excelfilelibrary.readData("LoginDetails", 4, 6);
+			String address2 = excelfilelibrary.readData("LoginDetails", 4, 7);
+			String state = excelfilelibrary.readData("LoginDetails", 4, 8);
+			String city = excelfilelibrary.readData("LoginDetails", 4, 9);
+			String zipcode = excelfilelibrary.readData("LoginDetails", 4, 10);
+			String mobilenumber = excelfilelibrary.readData("LoginDetails", 4, 11);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			signuppage_obj.getsignuplink().click();
+			signuppage_obj.getsignup_name().sendKeys(username);
+			signuppage_obj.getsignup_mail().sendKeys(email);
+			signuppage_obj.getsignup_button().click();
+			signuppage_obj.getfgender().click();
+			signuppage_obj.getpwd_textfield().sendKeys(password);
+			Select obj = new Select(signuppage_obj.getdaysdp());
+			obj.selectByIndex(4);
+			Select obj1 = new Select(signuppage_obj.getmonthsdp());
+			obj1.selectByIndex(6);
+			Select obj3 = new Select(signuppage_obj.getyearsdp());
+			obj3.selectByIndex(6);
+			
+			JavascriptExecutor js=(JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();",signuppage_obj.getnewsletter());
+			js.executeScript("arguments[0].click();",signuppage_obj.getcheckbox2());
+			
+		
+			signuppage_obj.getfirst_name().sendKeys(firstname);
+			signuppage_obj.getlast_name().sendKeys(lastname);
+			signuppage_obj.getcompany().sendKeys(company);
+			signuppage_obj.getaddress1().sendKeys(address);
+			signuppage_obj.getaddress2().sendKeys(address2);
+			signuppage_obj.getstate().sendKeys(state);
+			signuppage_obj.getcity().sendKeys(city);
+			signuppage_obj.getzipcode().sendKeys(zipcode);
+			signuppage_obj.getmobile_number().sendKeys(mobilenumber);
+			js.executeScript("arguments[0].click();",signuppage_obj.getcreateAccount());
+			boolean result1 = signuppage_obj.getcreateAccountmsg().isDisplayed();
+			if (result1) {
+				System.out.println(" Congratulations! Your new account has been successfully created! is displayed");
+			} else {
+				System.out.println(" Congratulations! Your new account has been successfully created! is not displayed");
+			}
+			signuppage_obj.getconti().click();
+			
+			//l.getlogout().click();
+			}
 	}
 	@AfterClass
 	public void closebrowser() {

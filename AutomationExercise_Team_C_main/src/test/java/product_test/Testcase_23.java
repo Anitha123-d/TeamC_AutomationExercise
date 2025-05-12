@@ -37,7 +37,7 @@ public void Verifyaddressdetailsincheckoutpage() throws IOException {
 		//Click 'Signup / Login' button
 		signuppageobj.getsignup1().click();
 		//. Fill all details in Signup and create account
-		UserCreation();
+		Signup();
 
 		//Verify 'ACCOUNT CREATED!' and click 'Continue' button
 //		boolean result1 = signuppageobj.getcreateAccountmsg().isDisplayed();

@@ -5,13 +5,6 @@
     <parameter name="AuthorName" value="User1"/>
     <parameter name="Browser" value="chrome"/>
     <classes>
-      <class name="product_test.Testcase_24">
-        <methods>
-          <include name="Downloadinvoiceafterpurchaseorder"/>
-          <include name="browserSetup"/>
-          <include name="closebrowser"/>
-        </methods>
-      </class> <!-- product_test.Testcase_24 -->
       <class name="product_test.Testcase_23">
         <methods>
           <include name="Verifyaddressdetailsincheckoutpage"/>

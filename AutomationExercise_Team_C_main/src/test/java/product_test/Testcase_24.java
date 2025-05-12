@@ -64,7 +64,7 @@ JavascriptExecutor js=(JavascriptExecutor) driver;
 		//Fill all details in Signup and create account
 		
 
-       UserCreation();
+       Signup();
 		
 //		signuppageobj.getsignup_name().sendKeys(username);
 //		signuppageobj.getsignup_mail().sendKeys(email);
