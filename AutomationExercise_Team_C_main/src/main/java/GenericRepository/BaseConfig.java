@@ -140,7 +140,7 @@ public class BaseConfig {
 		}
 		signuppage_obj.getconti().click();
 		
-		//l.getlogout().click();
+		l.getlogout().click();
 		}
 	}
 		public void Signup() throws IOException {
