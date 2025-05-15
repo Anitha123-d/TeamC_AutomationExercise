@@ -28,7 +28,7 @@ public class BaseConfig {
 
 	@Parameters({ "Browser", "AuthorName" })
 	@BeforeClass
-	public void browserSetup(String browser, String username) {
+	public void browserSetup(@Optional("edge") String browser, @Optional("Krant") String username) {
 
 
 		System.out.println("Username:" + username);
